@@ -9,10 +9,12 @@ class EmployeesList extends Component {
     }
 
     render() {
-        const { data, onDelete } = this.props
+        const { data, onDelete, onStar, doPersonGold } = this.props
         const items = data.map(item => {
             const { id, ...anotherItems } = item
-            return <EmployeesListItem key={id} {...anotherItems} onDelete={() => onDelete(id)} />
+            return <EmployeesListItem key={id} {...anotherItems} onDelete={() => onDelete(id)}
+                onStar={() => onStar(id)}
+                doPersonGold={() => doPersonGold(id)} />
         })
 
         return (
